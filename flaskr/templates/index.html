@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Camera Control</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row mt-5">
+			<div class="col-md-8 d-flex justify-content-center">
+				<div class="card" style="width: 50%;">
+					<div class="card-header">
+						Controls
+					</div>
+					<div class="card-body d-flex justify-content-around">
+						<div class="row">
+							<div class="col-sm-6 d-flex flex-fill justify-content-between">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">Brightness</li>
+									<li class="list-group-item">Contrast</li>
+									<li class="list-group-item">Saturation</li>
+									<li class="list-group-item">Autofocus</li>
+									<li class="list-group-item">Fixed Focus</li>
+								</ul>
+							</div>
+							<div class="col-sm-6 d-flex flex-fill justify-content-between">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<input type="range" id="brightness_slider" min="0" max="255" />
+									</li>
+									<li class="list-group-item">
+										<input type="range" id="contrast_slider" min="0" max="255" />
+									</li>
+									<li class="list-group-item">
+										<input type="range" id="saturation_slider" min="0" max="255" />
+									</li>
+									<li class="list-group-item">
+										<input type="checkbox" id="autofocus_check" />
+									</li>
+									<li class="list-group-item">
+										<input type="range" id="fixedfocus_slider" min="0" max="250" step="5" />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h2>
+						Camera Controller
+					</h2>
+					<p>
+						v4l2-ctl controller for Logitech C920 Camera, over Python.
+					</p>
+					<p>
+						<a class="btn btn-primary btn-large" href="#">Learn more</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+	<script src="static/script.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
