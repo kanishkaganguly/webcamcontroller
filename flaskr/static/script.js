@@ -3,6 +3,7 @@ const contrast_slider = document.querySelector("#contrast_slider");
 const saturation_slider = document.querySelector("#saturation_slider");
 const autofocus_check = document.querySelector("#autofocus_check");
 const fixedfocus_slider = document.querySelector("#fixedfocus_slider");
+const cam_details_btn = document.querySelector("#cam_details_btn");
 
 function makeRequest(url, data) {
     httpRequest = new XMLHttpRequest();
@@ -19,6 +20,30 @@ function makeRequest(url, data) {
     };
     httpRequest.open('GET', '/' + url + "/" + data, true);
     httpRequest.send();
+}
+
+function getCamDetails() {
+    fetch('/camera/devices', {
+        method: 'GET'
+    })
+        .then(response => {
+            resp = response.json().then(data => {
+                if (data.success) {
+                    console.log("Name: " + data.cam_name);
+                    document.querySelector("#cam_name").innerHTML = data.cam_name;
+                    data.cam_devs.forEach(dev => {
+                        console.log("Devices: " + dev);
+                        const li = document.createElement("li");
+                        li.setAttribute("class", "list-group-item");
+                        li.innerHTML = dev;
+                        document.querySelector("#dev_list").appendChild(li);
+                    });
+                }
+            });
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 brightness_slider.addEventListener("change", (e) => {
@@ -44,4 +69,8 @@ autofocus_check.addEventListener("change", (e) => {
 fixedfocus_slider.addEventListener("change", (e) => {
     console.log("Fixed Focus:" + e.target.value);
     makeRequest("fixedfocus", e.target.value);
+});
+
+cam_details_btn.addEventListener("click", (e) => {
+    getCamDetails();
 });
